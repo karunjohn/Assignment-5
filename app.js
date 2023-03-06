@@ -8,6 +8,14 @@ app.listen(3000,()=>{
 const path=require('path');
 app.use(express.static(path.join(__dirname+'/dist/FrontEnd')));
 // Task2: create mongoDB connection 
+const mongoose = require('mongoose');
+main().catch(err => console.log(err));
+
+async function main() {
+ // await mongoose.connect('mongodb://127.0.0.1:27017/test');
+  
+   await mongoose.connect('mongodb+srv://karunkjohn:qwerty123@cluster0.2ucz2a9.mongodb.net/test');
+}
 
 
 //Task 2 : write api with error handling and appropriate api mentioned in the TODO below
