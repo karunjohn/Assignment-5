@@ -61,8 +61,10 @@ app.get('/api/employeelist',async(req,res)=>{
 
 app.post('/api/employeelist',async(req,res)=>{
     try {
-        console.log('hai')
-        const employeelist= await employeeData.create({name:"karun",location:"kerala",position:"don",salary:"50000"})
+        console.log(req.body)
+        const {name, location, position, salary} = req.body
+
+        const employeelist= await employeeData.create({name,location,position,salary})
         res.send(employeelist)
         console.log('hai')
 
