@@ -96,6 +96,18 @@ app.post('/api/employeelist',async(req,res)=>{
 
 //TODO: delete a employee data from db by using api '/api/employeelist/:id'
 
+app.delete('/api/employeelist/:id',async(req,res)=>{
+    try {
+      const employeelist= await employeeData.findByIdAndDelete(req.params.id)
+      res.send(employeelist)
+        
+    }catch (error) {
+        console.log(error)
+        res.json('Error')
+        
+    }
+
+})
 
 
 
@@ -103,7 +115,18 @@ app.post('/api/employeelist',async(req,res)=>{
 //TODO: Update  a employee data from db by using api '/api/employeelist'
 //Request body format:{name:'',location:'',position:'',salary:''}
 
+app.put('/api/employeelist',async(req,res)=>{
+    try {
+      const employeelist= await employeeData.findByIdAndDelete(req.params.id)
+      res.send(employeelist)
+        
+    }catch (error) {
+        console.log(error)
+        res.json('Error')
+        
+    }
 
+})
 //! dont delete this code. it connects the front end file.
 app.get('/*', function (req, res) {
     res.sendFile(path.join(__dirname + '/dist/Frontend/index.html'));
