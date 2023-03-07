@@ -59,7 +59,19 @@ app.get('/api/employeelist',async(req,res)=>{
 //TODO: send data from db using api '/api/employeelist'
 //Request body format:{name:'',location:'',position:'',salary:''}
 
+app.post('/api/employeelist',async(req,res)=>{
+    try {
+        console.log('hai')
+        const employeelist= await employeeData.create({name:"karun",location:"kerala",position:"don",salary:"50000"})
+        res.send(employeelist)
+        console.log('hai')
 
+
+    } catch (error) {
+        console.log(error)
+        res.json('Error')
+    }
+})
 
 
 
