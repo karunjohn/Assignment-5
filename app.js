@@ -117,8 +117,12 @@ app.delete('/api/employeelist/:id',async(req,res)=>{
 
 app.put('/api/employeelist',async(req,res)=>{
     try {
-      const employeelist= await employeeData.findByIdAndDelete(req.params.id)
+        const id=req.body._id
+    const {name, location, position, salary} = req.body
+
+      const employeelist= await employeeData.findByIdAndUpdate(id, { name,location,position,salary})
       res.send(employeelist)
+      console.log(employeelist)
         
     }catch (error) {
         console.log(error)
